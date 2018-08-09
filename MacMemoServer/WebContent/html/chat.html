@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="chatchatcss.css"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>Title</title>
+</head>
+<body>
+<div class="titleBar" id="titleBar_test">&nbsp;
+    <div class="d1" onclick="searchVisible(0)"></div>
+    <div class="d2" >TITLE</div>
+    <div class="d3" onclick="searchVisible(0)"></div>
+    <div class="d4" onclick="searchVisible(0)"></div>
+    <div class="d5" onclick="searchVisible(0)"></div>
+</div>
+
+<div class="searchBar" id="searchBar_test">
+    <input type="text" id="searchText" style="left:20px; top:12px; width:60%; height: 50px;">
+    <!--line-height:100%;-->
+    <div style="position:absolute; left:50%; top:-4px; width:36px; height: 36px; background: url('image/search.png') no-repeat; background-size:contain;"
+         onclick="textSearchfunc()"></div>
+    <div style="position:absolute; left:65%; top:-4px; width:36px; height: 36px; background: url(image/close.png) no-repeat; background-size:contain;"
+         onclick="searchVisible(1)"></div>
+</div>
+
+
+<div class="talktheme" id="idTalktheme" >
+    <!--talktheme, talktheme_test-->
+    <div class="msg" id="idMsg">
+    </div>
+
+
+    <div class="sendmsg" style ="position: relative">
+        <!--<div class="settingButton" id="talktheme_setting" onclick="settingAlert(0)">-->
+            <!--<p>&nbsp;</p>-->
+        <!--</div>-->
+
+        <!--<div class="addImageButton" id="addImageButton" style="position:relative; left:5px;">-->
+            <!--<p>&nbsp;</p>-->
+        <!--</div>-->
+
+        <!--<textarea class="textarea" id="talktheme_inputMsg" placeholder="내용을 입력하세요" onkeypress="if(event.keyCode==13){-->
+                                 <!--talktheme_testfunc(); this.value=''; return false; }-->
+                              <!--else if(event.keyCode==10){ this.value+='\n'; }">-->
+        <!--</textarea>-->
+
+        <!--<div class="mySendButton" onclick="send()">전송</div>-->
+
+        <!--<div class="clear"></div>-->
+
+        <div class="settingButton"  id="talktheme_setting" onclick="settingAlert(0)">
+            <p>&nbsp;</p>
+        </div>
+
+        <div class="addImageButton"  id="addImageButton" style="position:relative;">
+            <p>&nbsp;</p>
+        </div>
+
+        <textarea class="textarea" id="talktheme_testmsg" onkeypress="
+            if(event.keyCode==13){ talktheme_testfunc(); this.value=''; return false; }else if(event.keyCode==10){ this.value+='\n'; }"></textarea>
+
+        <div class="mySendButton" onclick="send()">전송
+        </div>
+
+        <div class="clear"> </div>
+    </div>
+
+
+</div>
+
+<!--</div>-->
+
+<div class="notice_title" id="notice_title"> 공지사항 타이틀 영역이다</div>
+
+<div class="notice" id="notice_test">
+    <div class="msg">
+    </div>
+
+    <div class="expandNotice" id="expandNotice" onclick="noticeButtonClick_testfunc()" onfocus="this.blur()" style="cursor:pointer">
+        <p style="color: white;" onfocus="this.blur()" style="cursor:pointer"><font size="2"></font></p>
+    </div>
+    <div class="disExpandNotice" id="disExpandNotice" onclick="noticeButtonClick_testfunc()" onfocus="this.blur() " style="cursor:pointer">
+        <p style="color: white; " onfocus="this.blur()" style="cursor:pointer"><font size="2"></font></p>
+    </div>
+</div>
+
+<!--start font popup view-->
+<div class="fontSettingPopup" id="idFontSettingPopup">
+    <!--settingPopup, settingPopup_test-->
+    <div style="left:0px; top:0px; width:100%; line-height: 30px; COLOR:white; background-color: #000000;">
+        &nbsp;&nbsp;<B>설정 화면</B></div>
+    <div style="position:absolute; left:85%; top:0px; width:20%; height: 30px; background: url(image/close.png) no-repeat; background-size:contain;"
+         onclick="settingAlert(2)"></div>
+    <br>
+    <input type="Radio" name="chkInfo" value="large"><FONT COLOR=white>대</FONT><br><br>
+    <input type="Radio" name="chkInfo" value="medium"><FONT COLOR=white>중</FONT><br><br>
+    <input type="Radio" name="chkInfo" value="small" checked="checked"><FONT COLOR=white>소</FONT>
+
+    <div id="settingPopup_confButton"
+         style="position:absolute; left:50px; top:70%; width: 50px; line-height: 30px; background-color: #FFFFFF; text-align:center; color: #000000;"
+         onclick="settingAlert(2)"><B>취소</B></div>
+
+    <div id="settingPopup_confButton1"
+         style="position:absolute; left:120px; top:70%; width: 50px; line-height: 30px; background-color: #FF9900; text-align:center; color: white;"
+         onclick="settingAlert(1)"><B>변경</B></div>
+</div>
+<!--end font popup view-->
+
+<!--<div class="talktheme" style="width: 320px; height: 100px; top:200px; left:400px;">-->
+<!--<div class="sendmsg">-->
+<!--</div>-->
+<!--<input type='button ' value='공지쓰기' onclick="notice_testfunc()">-->
+<!--</div>-->
+
+</body>
+<script type="text/javascript">
+
+    var test_type = 0;
+    var noticeVisible = 1;  //공지 열림:0 닫힘:1
+
+    function settingAlert(visible){
+        switch(visible){
+            case 0 :
+                document.getElementById("idFontSettingPopup").style.visibility= "visible"
+                break;
+            case 1 :
+                document.getElementById("idFontSettingPopup").style.visibility= "hidden"
+                fontSizeSetting();
+                break;
+            case 2 :
+                document.getElementById("idFontSettingPopup").style.visibility= "hidden"
+                break;
+        }
+    }
+
+    function fontSizeSetting(){
+        var radioValue = document.getElementsByName("chkInfo");
+        for(var ii = 0; radioValue.length; ii++){
+            if(radioValue[ii].checked == true){
+                if(ii == 0)
+                    document.getElementById("idMsg").style.fontSize = "34px";
+                else if(ii == 1)
+                    document.getElementById("idMsg").style.fontSize = "26px";
+                else if(ii == 2)
+                    document.getElementById("idMsg").style.fontSize = "20px";
+            }
+        }
+    }
+
+    function send() {
+        var inputMessage = document.getElementById("talktheme_inputMsg"); //talktheme_testmsg
+//            webSocket.send(inputMessage.value);
+//            var startChar = inputMessage.value.substring(0,1);
+//            if(startChar == "@")
+//                notice_testfunc(inputMessage.value);
+//            else
+        talktheme_testfunc(inputMessage.value);
+        inputMessage.value = "";
+    }
+
+    function talktheme_testfunc(msg)
+    {
+        var inputMessage = document.getElementById("talktheme_inputMsg");
+        var otxtmsg = msg.replace("\n","<br />\n");
+
+//        var d = new Date();
+//        var ampm = (d.getHours()>12 ?  "오후" : "오전");
+//        var h = (d.getHours()>12 ? d.getHours()-12 : d.getHours());
+//        var m = d.getMinutes();
+
+        var strType = inputMessage.value.substring(0,1);
+        if(strType == "@"){
+            test_type = 1;
+        }
+        else{
+            test_type = 0; // My
+        }
+        talktheme_addmsg(test_type, "other", otxtmsg);
+        // inputMessage.value = msg +  ampm+" " +h+":"+m;
+    }
+
+
+    /*
+     * type
+     *      0 : mytalk
+     *      1 : othertalk
+     */
+    function talktheme_addmsg(type, name, msg)
+    {
+        var ocontainer = document.getElementById("idMsg");
+//        //var ocontainer_msg = ocontainer.getElementsByClassName("msg")[0];
+//
+        var onewmsg = document.createElement("div");
+        var onewblank = document.createElement("div");
+        var msgHeight = msg.scrollHeight * 100;
+//
+//        //ocontainer_msg.append("<br>"+msg);
+//
+        var d = new Date();
+        var ampm = (d.getHours()>12 ?  "오후" : "오전");
+        var h = (d.getHours()>12 ? d.getHours()-12 : d.getHours());
+        var m = d.getMinutes();
+        var time = ampm+" "+h+":"+m;
+
+        if(type)
+        {
+            onewmsg.className="othertalk";
+            onewmsg.innerHTML =
+                "<div class=\"profile_image\" style=\"background: url(image/profile_image.png) no-repeat;\">\n"+
+                "</div>\n"+
+                "<div class=\"box\">\n"+
+                "<div class=\"profile_name\">\n"+
+                name+"\n"+
+                "</div>\n"+
+                "<div class=\"a\">\n"+
+                "</div>\n"+
+                "<div class=\"b\">\n"+
+                msg+"\n"+
+                "</div>\n" +
+                "<div class=\"time\">\n"+
+                time+"\n"+
+                "</div>\n"+
+                "</div>\n";
+        }else{
+            onewmsg.className="mytalk";
+            onewmsg.innerHTML =
+                "<div class=\"b\">\n"+
+                "</div>\n"+
+                "<div class=\"a\">\n"+
+                msg+"\n"+
+                "</div>\n"+
+                "<div class=\"time\">\n"+
+                time+"\n"+
+                "</div>\n" +
+                "";
+        }
+
+        onewmsg.innerHTML +=
+            "<div class=\"clear\">\n"+
+            "</div>";
+
+        onewblank.className="blank";
+
+
+        ocontainer.appendChild(onewmsg);
+        ocontainer.appendChild(onewblank);
+        ocontainer.scrollTop = ocontainer.scrollHeight;
+    }
+
+    function noticeButtonClick_testfunc() {
+        noticeVisible ^= 0x01;
+        if (noticeVisible) {    //공지사항 닫힘
+            document.getElementById("disExpandNotice").style.visibility = "hidden"
+            document.getElementById("notice_title").style.visibility = "hidden"
+            document.getElementById("expandNotice").style.visibility = "visible"
+            document.getElementById("notice_test").style.top = "50px";
+            document.getElementById("notice_test").style.height = "20%";
+            var ocontainer = document.getElementById("notice_test");
+            var ocontainer_msg = ocontainer.getElementsByClassName("msg")[0];
+            ocontainer_msg.scrollTop = ocontainer_msg.scrollHeight;
+        }
+        else {      //열림
+            document.getElementById("expandNotice").style.visibility = "hidden"
+            document.getElementById("disExpandNotice").style.visibility = "visible"
+            document.getElementById("notice_title").style.visibility = "visible"
+            document.getElementById("notice_test").style.top = "100px";
+            document.getElementById("notice_test").style.height = "78%";
+            var ocontainer = document.getElementById("notice_test");
+            var ocontainer_msg = ocontainer.getElementsByClassName("msg")[0];
+            ocontainer_msg.scrollTop = ocontainer_msg.scrollHeight;
+        }
+    }
+
+    function searchVisible(visible){
+        switch(visible){
+            case 0 :
+                document.getElementById("searchBar_test").style.visibility= "visible"
+                break;
+            case 1 :
+                document.getElementById("searchBar_test").style.visibility= "hidden"
+                break;
+        }
+    }
+
+    var n = 0;
+
+    function textSearchfunc() {
+        var str = document.getElementById("searchText").value;
+        var scstr = str.trim();
+
+        if (scstr == null || scstr.trim() == "") {
+            //입력란이 비워 있다면 경고 메세지를 띄운후 포커스가 이동
+            document.getElementById("searchText").value = "null";
+            alert("검색 실패: 검색할 내용을 입력 하세요!");
+            return false;
+        }
+        else {
+            //입력 되어있다면//본문 안에 텍스트 범위를 생성 합니다.
+            contents = document.body.createTextRange();
+            for (var i=0; i <=n&&(c_find=contents.findText(scstr))!=false; i++) {
+                document.getElementById("talktheme_inputMsg").value = contents.findText(scstr);
+                //범위 안에서 findText메소를 사용 해서 입력된 문자를 찾습니다.
+                contents.moveStart("character", 1);
+                //범위 안에서 문자를 찾아 이동 합니다.
+                contents.moveEnd("textedit");
+                //범위 안에서 시작또는 끝으로 이동 합니다.
+            }
+
+            if (c_find) {
+                document.getElementById("talktheme_inputMsg").value = c_find;
+                //찾은 문자가 있다면 하나씩 찾아가며 셀렉트 해줍니다.
+                contents.moveStart("character", -1);
+                contents.findText(scstr);
+                contents.select();
+                n++;
+            }
+            else {
+                document.getElementById("talktheme_inputMsg").value = c_find;
+                if (n > 0) {
+                    //입력된 문자를 전부 찾았다면 경고 메세지를 띄웁니다.
+                    n = 0;
+                    alert("검색 완료: 페이지내에 검색 완료!");
+                    return false;
+                }
+                else {
+                    //찾는 문자가 없다면 메세지를 띄운후 입력창 포커스
+                    alert("검색 실패: 검색 내용이 없습니다!");
+                    str.value = "";
+                    str.focus();
+                    return false;
+                }
+            }
+            return false;
+        }
+    }
+    
+    function setChattingData(strdata) {
+
+        //console.log("Log 정보 [%s]", strdata);
+        alert("setChattingData!"+eval(String(strdata)));
+//        var obj =  JSON.parse(strData);
+//        alert("setChattingData!"+obj);
+        //talktheme_addmsg(test_type, "other", strData);
+    }
+
+</script>
+</html>

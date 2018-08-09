@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- Web -->
+	<!-- AIScript 조회 -->
+	<entry key="selecetAIScriptList">SELECT
+		CATEGORY_CODE, CONTENT, IDX
+		FROM AI_SCRIPT
+		ORDER
+		BY CATEGORY_CODE
+		ASC;</entry>
+
+	<!-- AIScript 추가 -->
+	<entry key="insertAIScript">INSERT AI_SCRIPT
+		(CATEGORY_CODE, CONTENT)
+		Values (?,?)</entry>
+
+	<!-- AIScript 수정 -->
+	<entry key="modifyAIScript">UPDATE AI_SCRIPT
+		SET CONTENT = ?
+		WHERE IDX = ?</entry>
+
+	<!-- AIScript 업데이트 -->
+	<entry key="updateAIScript">UPDATE AI_SCRIPT
+		SET CATEGORY_CODE = ?
+		WHERE IDX = ?;</entry>
+
+	<!-- AIScript 삭제 -->
+	<entry key="deleteAIScript">DELETE FROM AI_SCRIPT
+		WHERE IDX = ?;</entry>
+
+	<!-- AIScript Category 조회 -->
+	<entry key="selectCategoryAI">SELECT
+		CATEGORY_CODE, CATEGORY_NAME
+		FROM CATEGORY_AI;</entry>
+
+	<!-- AIScript Category 수정 -->
+	<entry key="modifyCategoryAI">UPDATE CATEGORY_AI
+		SET CATEGORY_CODE =?,CATEGORY_NAME=
+		?
+		WHERE CATEGORY_CODE = ?</entry>
+
+	<!-- AIScript Category 삭제 -->
+	<entry key="deleteCategoryAI">DELETE FROM CATEGORY_AI
+		WHERE CATEGORY_CODE = ?;</entry>
+
+	<!-- AIScript Category 추가 -->
+	<entry key="insertCategoryAI">INSERT CATEGORY_AI
+		(CATEGORY_CODE, CATEGORY_NAME)
+		Values (?, ?)</entry>
+
+	<!-- Bucket 조회 -->
+	<entry key="selectBucket">SELECT
+		BUCKET.CATEGORY_CODE, BUCKET.NICKNAME,
+		BUCKET.PHONE, BUCKET.CONTENT, BUCKET.IMAGE_URL,
+		BUCKET.CREATE_DT,
+		BUCKET.IDX,
+		CATEGORY_BUCKET.CATEGORY_NAME,
+		BUCKET.HIDDEN
+		FROM BUCKET,
+		CATEGORY_BUCKET
+		WHERE BUCKET.CATEGORY_CODE =
+		CATEGORY_BUCKET.CATEGORY_CODE
+		ORDER BY IDX
+		DESC;</entry>
+
+	<!-- Bucket 추가 -->
+	<entry key="insertBucket">INSERT BUCKET
+		(CATEGORY_CODE, NICKNAME, PHONE,
+		CONTENT,IMAGE_URL, CREATE_DT, HIDDEN)
+		Values (?, ?, ?, ? ,? ,?,? )</entry>
+
+	<!-- Bucket 삭제 -->
+	<entry key="deleteBucket">DELETE FROM BUCKET
+		WHERE IDX = ?;</entry>
+
+	<!-- Bucket 수정 -->
+	<entry key="modifyBucket">UPDATE BUCKET
+		SET CREATE_DT = ?, CONTENT = ?
+		WHERE IDX =
+		?</entry>
+
+	<!-- Bucket 수정 -->
+	<entry key="updateBucketCateogry">UPDATE BUCKET
+		SET CATEGORY_CODE = ?
+		WHERE IDX = ?;</entry>
+
+	<!-- Bucket 수정(hidden 값 수정) -->
+	<entry key="updateBucketHidden">UPDATE BUCKET
+		SET HIDDEN = ?
+		WHERE IDX = ?;</entry>
+
+	<!-- Bucket Category 조회 -->
+	<entry key="selectCategoryBucket">SELECT
+		CATEGORY_CODE, CATEGORY_NAME
+		FROM
+		CATEGORY_BUCKET;</entry>
+
+	<!-- Bucket Category 추가 -->
+	<entry key="insertCategoryBucket">INSERT CATEGORY_BUCKET
+		(CATEGORY_CODE, CATEGORY_NAME)
+		Values (?, ?)</entry>
+
+	<!-- Bucket Category 수정 -->
+	<entry key="modifyCategoryBucket">UPDATE BUCKET
+		SET CATEGORY_CODE = ?
+		WHERE IDX = ?;</entry>
+
+	<!-- Bucket Category 삭제 -->
+	<entry key="deleteCategoryBucket">DELETE FROM CATEGORY_BUCKET
+		WHERE CATEGORY_CODE = ?;</entry>
+
+	<!-- Bucket에 해당하는 Category 조회 -->
+	<entry key="selectCategoryOfBucket">SELECT
+		BUCKET.CATEGORY_CODE, BUCKET.NICKNAME,
+		BUCKET.PHONE, BUCKET.CONTENT, BUCKET.IMAGE_URL,
+		BUCKET.CREATE_DT,
+		BUCKET.IDX,
+		CATEGORY_BUCKET.CATEGORY_NAME,
+		BUCKET.HIDDEN
+		FROM BUCKET,
+		CATEGORY_BUCKET
+		WHERE BUCKET.CATEGORY_CODE =
+		CATEGORY_BUCKET.CATEGORY_CODE
+		ORDER BY IDX
+		DESC;</entry>
+
+	<!-- 업데이트 내역 조회 -->
+	<entry key="selectUpdateApp">
+		SELECT
+		VERSION_CODE, UPDATE_CONTENT
+		FROM UPDATE_APP
+		ORDER BY VERSION_CODE
+		DESC LIMIT 10;</entry>
+
+	<!-- 업데이트 내역 추가 -->
+	<entry key="insertUpdateApp">INSERT UPDATE_APP
+		( UPDATE_CONTENT ) Values ( ? )</entry>
+
+	<!-- 업데이트 내역 스정 -->
+	<entry key="modifyUpdateApp">UPDATE UPDATE_APP
+		SET VERSION_CODE= ?,UPDATE_CONTENT= ?
+		WHERE VERSION_CODE = ? ;</entry>
+
+	<!-- 업데이트 내역 삭제 -->
+	<entry key="deleteUpdateApp">DELETE FROM UPDATE_APP
+		WHERE VERSION_CODE = ? ;</entry>
+
+	<!-- Version 조회 -->
+	<entry key="selectVersion"> SELECT
+		VERSION_CODE, VERSION_NAME, UPDATE_FORCE
+		FROM
+		VERSION
+		ORDER BY
+		VERSION_CODE DESC LIMIT 10;</entry>
+
+	<!-- Version 추가 -->
+	<entry key="insertVersion">INSERT VERSION
+		(VERSION_CODE, VERSION_NAME,
+		UPDATE_FORCE)
+		Values (?, ?, ?)</entry>
+
+	<!-- Version 수정 -->
+	<entry key="modifyVersion">UPDATE VERSION
+		SET VERSION_CODE = ? , VERSION_NAME = ?,
+		UPDATE_FORCE= ?
+		WHERE VERSION_CODE = ?
+	</entry>
+
+	<!-- Version 삭제 -->
+	<entry key="deleteVersion">DELETE FROM VERSION
+		WHERE VERSION_CODE = ?
+	</entry>
+
+	<!-- IP 조회 -->
+	<entry key="selectIP">SELECT
+		VERSION_CODE, VERSION_NAME
+		FROM
+		IP;</entry>
+
+	<!-- IP 추가 -->
+	<entry key="insertIP">INSERT IP
+		(VERSION_CODE, VERSION_NAME)
+		Values (?, ? )</entry>
+
+	<!-- IP 삭제 -->
+	<entry key="deleteIP">DELETE FROM IP
+		WHERE VERSION_CODE = ?;</entry>
+
+	<!-- 방문자 조회 -->
+	<entry key="selectTodayCnt">SELECT
+		DAYOFWEEK(DATE), DATE, IDX
+		FROM TODAY_CNT
+		ORDER BY
+		DATE DESC;
+	</entry>
+
+	<!-- 최근방문 조회 -->
+	<entry key="selecetMonthCnt">SELECT
+		NICKNAME, VERSION_NAME, LAST_DT
+		FROM USER_MOBILE
+		ORDER BY
+		LAST_DT DESC;
+	</entry>
+
+	<!-- 최근 버전명 조회 -->
+	<entry key="selecetLastestVersion">SELECT VERSION_NAME FROM
+		VERSION
+		WHERE
+		VERSION_CODE = (
+		SELECT MAX( VERSION_CODE ) FROM VERSION
+		);
+	</entry>
+
+	<!-- Bucket Rank 조회 -->
+	<entry key="selectBucketRank">SELECT
+		CATEGORY_CODE, CONTENT, IDX,
+		BEST_CNT, GOOD_CNT,
+		SOSO_CNT
+		FROM BUCKET_RANK
+		ORDER BY IDX
+		DESC;</entry>
+
+	<!-- Bucket Rank User 추가 -->
+	<entry key="insertBucketRankUser">INSERT BUCKET_RANK_USER
+		(BUCKET_RANK_IDX, NICKNAME,
+		COMMENT )
+		Values
+		(?,
+		?,? )</entry>
+
+	<!-- Server -->
+
+	<!-- MobileUser 조회 -->
+	<!-- <entry key="selecetMobileUser">SELECT NICKNAME, VERSION_NAME, COUNTRY, 
+		LAST_DT,GCM_TOKEN,PHONE, OS_VERSION, TEL_GBN, VISITS FROM USER_MOBILE WHERE 
+		VERSION_NAME = ( SELECT VERSION_NAME FROM VERSION WHERE VERSION_CODE = ( 
+		SELECT MAX( VERSION_CODE ) FROM VERSION ) ) ORDER BY LAST_DT DESC;</entry> -->
+
+	<entry key="selecetMobileUser">SELECT
+		NICKNAME, VERSION_NAME, COUNTRY,
+		LAST_DT,GCM_TOKEN,PHONE, OS_VERSION, TEL_GBN, VISITS
+		FROM USER_MOBILE
+		ORDER BY LAST_DT DESC;
+	</entry>
+
+	<!-- MobileUser Token 조회 -->
+	<entry key="selecetMobileUserToken">SELECT
+		GCM_TOKEN
+		FROM USER_MOBILE
+		WHERE GCM_TOKEN != "N"
+		ORDER BY
+		LAST_DT DESC;</entry>
+
+
+	<!-- MobileUser 추가 -->
+	<entry key="insertMobileUser">INSERT USER_MOBILE
+		(OS, NICKNAME, PHONE, VERSION_NAME,
+		MARKET, LANG, COUNTRY,
+		LAST_DT,GCM_TOKEN, OS_VERSION, TEL_GBN, VISITS)
+		Values
+		(?, ?, ?, ? ,? ,?, ?,
+		?,?, ? ,?, ? )</entry>
+
+	<!-- 버킷 이미지 업데이트 -->
+	<entry key="updateBucketImage">UPDATE BUCKET
+		SET IMAGE_URL = ?
+		WHERE IDX = ?</entry>
+
+	<!-- 사용자 정보 삭제 -->
+	<entry key="deleteUser">DELETE FROM USER_MOBILE
+		WHERE NICKNAME = ?;</entry>
+
+	<!-- Mobile API -->
+
+	<!-- 업데이트 내역 조회 -->
+	<entry key="selectMobileUpdateApp">SELECT
+		VERSION_CODE, UPDATE_CONTENT
+		FROM UPDATE_APP
+		ORDER BY VERSION_CODE DESC LIMIT 15;</entry>
+
+	<!-- 업데이트 내역 조회 -->
+	<entry key="selectMobileCategoryBucket">SELECT
+		CATEGORY_CODE, CATEGORY_NAME
+		FROM CATEGORY_BUCKET
+		ORDER BY CATEGORY_CODE ASC;</entry>
+
+	<!-- 버킷 댓글 글 추가 -->
+	<entry key="insertMobileComment">INSERT COMMENT
+		(NICKNAME, CONTENT,CREATE_DT, BUCKET_NO)
+		Values (?, ?, ?, ?)</entry>
+
+	<!-- 최신 버전 가져오기 -->
+	<entry key="selectMobileVersion">SELECT * FROM VERSION;</entry>
+
+	<!-- 최신 IP 가져오기 -->
+	<entry key="selectMobileIP">SELECT * FROM IP;</entry>
+
+	<!-- DB 업데이트 -->
+	<entry key="insertDBFile">INSERT DB_HISTORY
+		(NICKNAME, DB_NAME, CREATE_DT)
+		Values
+		(?, ?, ?)</entry>
+
+	<!-- 채팅방 입장 -->
+	<entry key="enterChatRoom">INSERT CHAT_HISTORY
+		(CHAT_IDX, NICKNAME,CREATE_DT, STATUS)
+		Values (?, ?, ?, ?)</entry>
+
+	<!-- 채팅방 퇴장 -->
+	<entry key="leaveChatRoom">UPDATE CHAT_HISTORY
+		SET NICKNAME = ?,CREATE_DT = ? ,
+		STATUS = ?
+		WHERE CHAT_IDX = ? AND NICKNAME = ?
+	</entry>
+
+	<!-- 채팅방 내용입력 -->
+	<entry key="insertChatContent">INSERT CHAT
+		(CHAT_IDX, NICKNAME, CREATE_DT, CONTENT)
+		Values (?, ?, ?, ?)
+	</entry>
+
+
+</properties>

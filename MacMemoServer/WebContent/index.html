@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+<title>메모가지 관리자</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.dropotron.min.js"></script>
+<script src="js/jquery.scrolly.min.js"></script>
+<script src="js/jquery.onvisible.min.js"></script>
+<script src="js/skel.min.js"></script>
+<script src="js/skel-layers.min.js"></script>
+<script src="js/init.js"></script>
+<link rel="stylesheet" href="css/skel.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style-desktop.css" />
+<link rel="stylesheet" href="css/style-noscript.css" />
+<script type="text/javascript" src="http://jsgetip.appspot.com"></script>
+<script type="text/javascript">
+	//document.write(ip()); // IP Address
+	function onKeyDown() {
+		//엔터키 입력
+		if (event.keyCode == 13) {
+			//TODO : 실행시킬 코드
+			checkAccount();
+		}
+	}
+	// 계정 체크 함수
+	function checkAccount() {
+		var form = document.board;
+		if (!form.userID.value) {
+			form.userID.focus();
+			return;
+		}
+		if (!form.userPassword.value) {
+			form.userPassword.focus();
+			return;
+		}
+
+		form.submit();
+	}
+</script>
+
+<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+<body class="homepage">
+
+	<!-- Header -->
+	<div id="header">
+
+		<!-- Inner -->
+		<div class="inner">
+			<header>
+				<h1>KMemo App</h1>
+				<br>
+				<h2>Admin page</h2>
+			</header>
+			<form name=board method=post
+				action="jsp/CheckAccount.jsp">
+				<table width="100%" height="100%" cellpadding="0" cellspacing="0">
+					<tr height="100">
+						<td>Id</td>
+						<td><input name="userID" type="text" value="" maxlength="100"></td>
+					</tr>
+					<tr height="100">
+						<td>Password</td>
+						<td><input name="userPassword" type="password" value=""
+							maxlength="100" onkeydown="javascript:onKeyDown();"></td>
+					</tr>
+					<tr height="100">
+						<td colspan="2"><input type=button value="로그인"
+							OnClick="javascript:checkAccount();"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

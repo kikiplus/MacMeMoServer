@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript" charset="EUC-KR">
+	var url = location.href;
+	var index = url.indexOf("src");
+	var imageSrc = url.substr(index + 4, url.length);
+
+	var canvas;
+
+	var ctx;
+
+	window.onload = function() {
+
+		canvas = document.getElementById("canvas");
+
+		if (canvas == null || canvas.getContext == null)
+			return;
+
+		ctx = canvas.getContext("2d");
+
+		var image = new Image();
+		image.onload = function() {
+			ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+		}
+		image.src = 'http://cfile238.uf.daum.net/image/2122A53455A8E7061422A2';
+	}
+
+	function draw() {
+		var img = document.getElementById("imageView");
+		ctx.drawImage(img, 100, 0);
+
+	}
+</script>
+<meta charset="EUC-KR">
+<title></title>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500">
+     </canvas>
+	<div style="display: none">
+		<img id="imageView" src="">
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="dbName">root</entry>
+	<entry key="dbPassword">tkfkdgo4596</entry>
+	<entry key="dbUrl">jdbc:mysql://localhost:3306/kikiplus</entry>
+	<entry key="gcmProjectId">test</entry>
+	<entry key="fileUploadPath">C:\\Users\\mhKim\\Documents\\workspace\\KMemoFileUpload</entry>
+	<entry key="gcmProjectAPIKey">AIzaSyAL9dxXij0eNYiQymgIMJc4jtEUQFhAXbc</entry>
+	<entry key="SessionUserId">SessionUserId</entry>
+	<entry key="fileErrorLogPath">C:\\Users\\mhKim\\Documents\\workspace\\KMemoErrorLog</entry>
+	<entry key="DBfileUploadPath">C:\\Users\\mhKim\\Documents\\workspace\\KMemoDBFile</entry>
+</properties>
