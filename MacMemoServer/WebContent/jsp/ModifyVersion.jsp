@@ -46,7 +46,7 @@
 			return;
 		}
 
-		f.action = "/jsp/UpdateVersion.jsp";
+		f.action = "UpdateVersion.jsp";
 		f.submit();
 	}
 </script>
@@ -65,7 +65,7 @@
 		System.out.println("idx : " + idx);
 
 		ArrayList<Version> BoardList = VersionDao
-				.selectVersion("SELECT * FROM version WHERE version_code = " + idx + ";");
+				.selectVersion("SELECT * FROM VERSION WHERE version_code = " + idx + ";");
 
 		if (BoardList.size() == 1) {
 			System.out.println("글 수정 데이타 조회");

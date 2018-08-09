@@ -83,11 +83,11 @@
 				<td><input type=button value="홈"
 					Onclick="javascript:pass('/kikiMain.html')"> <input
 					type=button value="등록"
-					Onclick="javascript:pass('/jsp/InsertVersion.jsp')">
+					Onclick="javascript:pass('InsertVersion.jsp')">
 					<input type=button value="수정"
-					Onclick="javascript:passForm('/jsp/ModifyVersion.jsp')">
+					Onclick="javascript:passForm('ModifyVersion.jsp')">
 					<input type=button value="삭제"
-					Onclick="javascript:passForm('/jsp/DeleteVersion.jsp')">
+					Onclick="javascript:passForm('DeleteVersion.jsp')">
 				</td>
 
 			</tr>

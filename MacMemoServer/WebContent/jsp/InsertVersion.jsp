@@ -39,7 +39,7 @@
 <body>
 	<b>버전 등록 페이지</b>
 	<table width="70%" cellpadding="0" cellspacing="0" border="0">
-		<form name=board method=post action="/jsp/AddVersion.jsp">
+		<form name=board method=post action="AddVersion.jsp">
 			<tr height="5">
 				<td width="5"></td>
 			</tr>

@@ -25,7 +25,7 @@
 		if (isResult) {
 			System.out.println("글 삭제 성공");
 
-			response.sendRedirect("/jsp/VersionList.jsp");
+			response.sendRedirect("VersionList.jsp");
 		} else {
 			System.out.println("글 삭제 실패");
 		}

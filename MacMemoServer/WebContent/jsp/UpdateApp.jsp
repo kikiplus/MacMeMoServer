@@ -6,7 +6,7 @@
 <html>
 <head>
 <script language="javascript" charset="EUC-KR">
-	location.href = "/jsp/UpdateAppList.jsp";
+	location.href = "UpdateAppList.jsp";
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메모가지 관리자 </title>
