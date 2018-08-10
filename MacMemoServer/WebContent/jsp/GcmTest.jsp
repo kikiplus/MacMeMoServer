@@ -64,7 +64,7 @@
 </head>
 <body>
 	<table width="70%" cellpadding="0" cellspacing="0" border="0">
-		<form name=gcm method=post action="/MemoServer/jsp/sendMessage.jsp">
+		<form name=gcm method=post action="sendMessage.jsp">
 			<tr height="5">
 				<td width="5"></td>
 			</tr>

@@ -10,7 +10,7 @@
 <html>
 <head>
 <script>
-	location.href = "/jsp/BucketList.jsp";
+	location.href = "BucketList.jsp";
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메모가지 관리자</title>

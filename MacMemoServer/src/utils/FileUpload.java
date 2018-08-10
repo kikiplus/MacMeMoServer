@@ -35,8 +35,8 @@ public class FileUpload {
 
 			File oldFile = new File(savePath + "\\" + uploadFile);
 
-			// System.out.println("파일경로 :" + oldFile.getPath());
-			// System.out.println("파일명 :" + uploadFile);
+			 System.out.println("파일경로 :" + oldFile.getPath());
+			 System.out.println("파일명 :" + uploadFile);
 			return uploadFile;
 
 		} catch (Exception e) {

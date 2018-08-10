@@ -48,10 +48,10 @@
 			if (isResult) {
 				System.out.println("@@ GCM 전송 완료");
 				out.println("<script>alert('" + "GCM 전송완료" + "');</script>");
-				response.sendRedirect("/jsp/GcmTest.jsp");
+				response.sendRedirect("GcmTest.jsp");
 			} else {
 				out.println("<script>alert('" + "GCM 전송실패" + "');</script>");
-				response.sendRedirect("/jsp/GcmTest.jsp");
+				response.sendRedirect("GcmTest.jsp");
 			}
 		}
 	%>

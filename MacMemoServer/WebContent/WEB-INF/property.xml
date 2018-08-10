@@ -5,9 +5,9 @@
 	<entry key="dbPassword">tkfkdgo4596</entry>
 	<entry key="dbUrl">jdbc:mysql://localhost:3306/kikiplus</entry>
 	<entry key="gcmProjectId">test</entry>
-	<entry key="fileUploadPath">C:\\Users\\mhKim\\Documents\\workspace\\KMemoFileUpload</entry>
+	<entry key="fileUploadPath">/home/hosting_users/kikiplus/www/KMemoFileUpload</entry>
 	<entry key="gcmProjectAPIKey">AIzaSyAL9dxXij0eNYiQymgIMJc4jtEUQFhAXbc</entry>
 	<entry key="SessionUserId">SessionUserId</entry>
-	<entry key="fileErrorLogPath">C:\\Users\\mhKim\\Documents\\workspace\\KMemoErrorLog</entry>
-	<entry key="DBfileUploadPath">C:\\Users\\mhKim\\Documents\\workspace\\KMemoDBFile</entry>
+	<entry key="fileErrorLogPath">/home/hosting_users/kikiplus/www/KMemoErrorLog</entry>
+	<entry key="DBfileUploadPath">/home/hosting_users/kikiplus/www/KMemoDBFile</entry>
 </properties>
