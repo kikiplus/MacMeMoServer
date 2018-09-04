@@ -100,7 +100,7 @@
 		%>
 		<tr align="center">
 			<td><input type=button value="홈"
-					Onclick="javascript:pass('/guestMain.html')"> 
+					Onclick="javascript:pass('../guestMain.html')"> 
 				</td>
 			</tr>
 		<%
@@ -108,7 +108,7 @@
 		%>
 		<tr align="center">
 			<td><input type=button value="홈"
-				Onclick="javascript:pass('/kikiMain.html')"></td>
+				Onclick="javascript:pass('../kikiMain.html')"></td>
 		</tr>
 		<%
 			}

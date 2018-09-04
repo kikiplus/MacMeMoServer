@@ -107,7 +107,8 @@ public class CategoryBucketDao {
 
 			PreparedStatement preparedStmt = (PreparedStatement) con.prepareStatement(sql);
 			preparedStmt.setInt(1, board.getCategoryCode());
-			preparedStmt.setInt(2, board.getIdx());
+			preparedStmt.setString(2, board.getCategoryName());
+			preparedStmt.setInt(3, board.getIdx());
 			preparedStmt.execute();
 
 		} catch (SQLException e) {

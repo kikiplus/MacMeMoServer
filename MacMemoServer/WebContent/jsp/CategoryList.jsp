@@ -69,7 +69,7 @@
 			%>
 			<tr align="center" height="30">
 				<td width="100"><input name="idx" type="radio"
-					value="<%=boardList.get(i).getCategoryCode()%>"> <%=i + 1%></td>
+					value="<%=boardList.get(i).getCategoryCode()%>"><%=boardList.get(i).getCategoryCode()%></td>
 				<td width="379"><%=boardList.get(i).getCategoryName()%></td>
 			</tr>
 			<%
@@ -83,13 +83,13 @@
 			</tr>
 			<tr align="center">
 				<td><input type=button value="홈"
-					Onclick="javascript:pass('/kikiMain.html')"> <input
+					Onclick="javascript:pass('../kikiMain.html')"> <input
 					type=button value="등록"
-					Onclick="javascript:pass('/jsp/InsertCategoryBucket.jsp')">
+					Onclick="javascript:pass('InsertCategoryBucket.jsp')">
 					<input type=button value="수정"
-					Onclick="javascript:passForm('/jsp/ModifyCategoryBucket.jsp')">
+					Onclick="javascript:passForm('ModifyCategoryBucket.jsp')">
 					<input type=button value="삭제"
-					Onclick="javascript:passForm('/jsp/DeleteCategoryBucket.jsp')">
+					Onclick="javascript:passForm('DeleteCategoryBucket.jsp')">
 
 				</td>
 

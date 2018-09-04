@@ -103,9 +103,9 @@
 		Values (?, ?)</entry>
 
 	<!-- Bucket Category 수정 -->
-	<entry key="modifyCategoryBucket">UPDATE BUCKET
-		SET CATEGORY_CODE = ?
-		WHERE IDX = ?;</entry>
+	<entry key="modifyCategoryBucket">UPDATE CATEGORY_BUCKET 
+		SET CATEGORY_CODE = ? , CATEGORY_NAME = ?
+		WHERE CATEGORY_CODE  = ?;</entry>
 
 	<!-- Bucket Category 삭제 -->
 	<entry key="deleteCategoryBucket">DELETE FROM CATEGORY_BUCKET

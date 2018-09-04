@@ -121,7 +121,7 @@
 			</tr>
 			<tr align="center">
 				<td><input type=button value="홈"
-					Onclick="javascript:pass('/kikiMain.html')"></td>
+					Onclick="javascript:pass('../kikiMain.html')"></td>
 				<td><select style="width: 300px;" id="categoryCode"
 					name="categoryCode">
 						<option value="1">LIFE</option>
@@ -137,7 +137,7 @@
 				</select></td>
 				<td><input name="categoryC
 			ode" type=button value="업데이트"
-					Onclick="javascript:passForm('/jsp/UpdateCategoryBucket.jsp')">
+					Onclick="javascript:passForm('UpdateCategoryBucket.jsp')">
 				</td>
 			</tr>
 			<tr height="100">
