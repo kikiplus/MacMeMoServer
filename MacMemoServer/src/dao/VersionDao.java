@@ -278,5 +278,43 @@ public class VersionDao {
 
 		return version;
 	}
+	
+	/**
+	 * 최신 버전 정보 반환
+	 * 
+	 * @param board
+	 * @return 최신 버전 정
+	 * @throws SQLException
+	 */
+	public static String getLastVersionName() throws SQLException {
+		Connection con = null;
+		String sql = XMLParser.getSqlFromXML("selectAppLastVersion");
+		String strVersion = "";
+		try {
+			con = DBConnectionUtil.getConnection();
+			java.sql.Statement st = null;
+			ResultSet rs = null;
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+
+			if (st.execute(sql)) {
+				rs = st.getResultSet();
+			}
+
+			
+			while (rs.next()) {
+				int versionCode = rs.getInt(1);
+				strVersion = rs.getNString(2);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			con.close();
+		}
+
+		return strVersion;
+	}
 
 }

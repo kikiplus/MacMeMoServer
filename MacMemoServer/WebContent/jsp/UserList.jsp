@@ -67,7 +67,7 @@
 					</tr>
 					<%
 						//사용자 정보 불러오기
-						String version = VersionDao.getLastVersion();
+						String version = VersionDao.getLastVersionName();
 
 						ArrayList<MobileUser> userList = (ArrayList<MobileUser>) MobileUserDao.selecetMobileUser();
 						int nLastestVersion = 0;
