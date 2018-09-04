@@ -243,13 +243,13 @@ public class VersionDao {
 	 * 최신 버전 정보 반환
 	 * 
 	 * @param board
-	 * @return 게시판 글 삭제 성공 여부
+	 * @return 최신 버전 정
 	 * @throws SQLException
 	 */
-	public static String getLastVersion() throws SQLException {
+	public static Version getLastVersion() throws SQLException {
 		Connection con = null;
-		String sql = XMLParser.getSqlFromXML("selecetLastestVersion");
-		String lastVersion = null;
+		String sql = XMLParser.getSqlFromXML("selectAppLastVersion");
+		Version version = new Version();
 		try {
 			con = DBConnectionUtil.getConnection();
 			java.sql.Statement st = null;
@@ -261,10 +261,12 @@ public class VersionDao {
 				rs = st.getResultSet();
 			}
 
-			int mVersionCode = -1;
-
+			
 			while (rs.next()) {
-				lastVersion = rs.getNString(1);
+				int versionCode = rs.getInt(1);
+				String versionName = rs.getNString(2);
+				version.setVersionCode(versionCode);
+				version.setVersionName(versionName);
 			}
 
 		} catch (SQLException e) {
@@ -274,7 +276,7 @@ public class VersionDao {
 			con.close();
 		}
 
-		return lastVersion;
+		return version;
 	}
 
 }

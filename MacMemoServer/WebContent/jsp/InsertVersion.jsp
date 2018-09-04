@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="dao.VersionDao"%>
+<%@page import="vo.Version"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -36,6 +39,18 @@
 </script>
 <title>메모가지 관리자</title>
 </head>
+<%
+		request.setCharacterEncoding("UTF-8");
+		Version version = VersionDao.getLastVersion();
+		if (version != null) {
+			System.out.println("최신 버전 데이타 조회");
+			System.out.println(version.getVersionCode());
+			System.out.println(version.getVersionName());
+		} else {
+			System.out.println("최신 버전 데이 불러오기 실패");
+		}
+	%>
+	
 <body>
 	<b>버전 등록 페이지</b>
 	<table width="70%" cellpadding="0" cellspacing="0" border="0">
@@ -56,17 +71,17 @@
 			</tr>
 			<tr height="50">
 				<td width=70>버전코드</td>
-				<td><input name="versionCode" type=edit value=""
+				<td><input name="versionCode" type=edit value="<%=version.getVersionCode() + 1 %>"
 					maxlength="200"></td>
 			</tr>
 			<tr height="50">
 				<td width=70>버전명</td>
-				<td><input name="versionName" type=edit value=""
+				<td><input name="versionName" type=edit value="<%=version.getVersionName()%>"
 					maxlength="200"></td>
 			</tr>
 			<tr height="50">
 				<td width=70>강제 업데이트 (Y/N)</td>
-				<td><input name="forceYN" type=edit value="" maxlength="10"></td>
+				<td><input name="forceYN" type=edit value="N" maxlength="10"></td>
 			</tr>
 			<tr height="10">
 				<td width="10"></td>

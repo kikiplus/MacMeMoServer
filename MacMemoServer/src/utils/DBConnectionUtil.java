@@ -13,17 +13,17 @@ import java.sql.*;
 public class DBConnectionUtil {
 
 	/** DB driver */
-	private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver"; //운영은 com.mysql.jdbc.Driver
+	private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver"; //개발 
+//	private static final String DRIVER_NAME = "com.mysql.jdbc.Driver"; //운영
 	
 	private static final String DB_NAME = "kikiplus";
 	
-	private static final String DB_PASSWORD = "tkfkdgo4596";
+	private static final String DB_PASSWORD = "tkfkdgo4596"; // 개발 
+//	private static final String DB_PASSWORD = "tkfkdgo4596!"; //운영 
 	
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false";
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false&allowPublicKeyRetrieval=true"; // 개발 
+//	private static final String DB_URL = "jdbc:mysql://localhost:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false"; // 운영 
 			
-			//"jdbc:mysql://kikiplus.cafe24.com:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false";
-			
-			//"jdbc:mysql://localhost:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false";
 			
 			//"jdbc:mysql://localhost:3306/kikiplus?autoReconnect=true&useSSL=false&serverTimezone=UTC&characterEncoding=utf8&characterSetResults=utf8&verifyServerCertificate=false";
 			
@@ -40,11 +40,7 @@ public class DBConnectionUtil {
 		
 		try {
 			Class.forName(DRIVER_NAME);
-
-//			String name = XMLParser.getXMLObject("dbName");
-//			String password = XMLParser.getXMLObject("dbPassword");
-//			String url = XMLParser.getXMLObject("dbUrl");
-		     System.out.println("@@ name : "+ DB_NAME + ", password : " + DB_PASSWORD + ", url : "+  DB_URL);
+		    System.out.println("@@ name : "+ DB_NAME + ", password : " + DB_PASSWORD + ", url : "+  DB_URL);
 			mConnection = (Connection) DriverManager.getConnection(DB_URL, DB_NAME, DB_PASSWORD);
 		} catch (ClassNotFoundException cnfe) {
 			System.out.println("@@ DBConnectionUtil getConnection ClassNotFoundException Error");

@@ -95,8 +95,7 @@
 			</tr>
 			<tr height="10">
 				<td width=70>카테고리명</td>
-				<td><textarea name="categoryName" cols="50" rows="13"><%=BoardList.get(0).getCategoryName()%>
-				</textarea></td>
+				<td><textarea name="categoryName" cols="50" rows="13"><%=BoardList.get(0).getCategoryName()%></textarea></td>
 			</tr>
 
 			<tr height="10">

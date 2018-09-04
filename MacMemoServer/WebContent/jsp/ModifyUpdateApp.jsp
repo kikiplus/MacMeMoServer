@@ -91,8 +91,7 @@
 			</tr>
 			<tr height="10">
 				<td width=70>Contents</td>
-				<td><textarea name="content" cols="50" rows="13"><%=BoardList.get(0).getContent()%>
-				</textarea></td>
+				<td><textarea name="content" cols="50" rows="13"><%=BoardList.get(0).getContent()%></textarea></td>
 			</tr>
 
 			<tr height="10">

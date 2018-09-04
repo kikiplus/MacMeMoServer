@@ -204,15 +204,6 @@
 		LAST_DT DESC;
 	</entry>
 
-	<!-- 최근 버전명 조회 -->
-	<entry key="selecetLastestVersion">SELECT VERSION_NAME FROM
-		VERSION
-		WHERE
-		VERSION_CODE = (
-		SELECT MAX( VERSION_CODE ) FROM VERSION
-		);
-	</entry>
-
 	<!-- Bucket Rank 조회 -->
 	<entry key="selectBucketRank">SELECT
 		CATEGORY_CODE, CONTENT, IDX,
@@ -293,6 +284,9 @@
 
 	<!-- 최신 버전 가져오기 -->
 	<entry key="selectMobileVersion">SELECT * FROM VERSION;</entry>
+	
+	<!-- 최신 버전 가져오기 -->
+	<entry key="selectAppLastVersion">SELECT VERSION_CODE, VERSION_NAME FROM VERSION ORDER BY VERSION_CODE DESC LIMIT 1; </entry>
 
 	<!-- 최신 IP 가져오기 -->
 	<entry key="selectMobileIP">SELECT * FROM IP;</entry>
