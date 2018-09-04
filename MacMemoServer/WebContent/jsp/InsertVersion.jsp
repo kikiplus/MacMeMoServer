@@ -42,10 +42,20 @@
 <%
 		request.setCharacterEncoding("UTF-8");
 		Version version = VersionDao.getLastVersion();
+		String version_code = "", version_name = "";
+		
+		
 		if (version != null) {
 			System.out.println("최신 버전 데이타 조회");
-			System.out.println(version.getVersionCode());
-			System.out.println(version.getVersionName());
+			version_code = version.getVersionCode() + 1 + "" ;
+			System.out.println("@@ versionCode : " + version_code);
+			
+			version_name = version.getVersionName();
+			int nTempVersionCode = Integer.valueOf(version_name.substring(4, 6)) + 1;
+			System.out.println("@@ versionName1 : " + nTempVersionCode);
+			version_name = version_name.substring(0, 3)  + "." + String.format("%02d", nTempVersionCode);
+			System.out.println("@@ versionName2 : " + version_name);
+			
 		} else {
 			System.out.println("최신 버전 데이 불러오기 실패");
 		}
@@ -71,13 +81,11 @@
 			</tr>
 			<tr height="50">
 				<td width=70>버전코드</td>
-				<td><input name="versionCode" type=edit value="<%=version.getVersionCode() + 1 %>"
-					maxlength="200"></td>
+				<td><input name="versionCode" type=edit value="<%=version_code%>" maxlength="200"></td>
 			</tr>
 			<tr height="50">
 				<td width=70>버전명</td>
-				<td><input name="versionName" type=edit value="<%=version.getVersionName()%>"
-					maxlength="200"></td>
+				<td><input name="versionName" type=edit value="<%=version_name%>" maxlength="200"></td>
 			</tr>
 			<tr height="50">
 				<td width=70>강제 업데이트 (Y/N)</td>
