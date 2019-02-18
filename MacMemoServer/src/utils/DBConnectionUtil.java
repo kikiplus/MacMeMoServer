@@ -13,16 +13,16 @@ import java.sql.*;
 public class DBConnectionUtil {
 
 	/** DB driver */
-	private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver"; //개발 
-//	private static final String DRIVER_NAME = "com.mysql.jdbc.Driver"; //운영
+//	private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver"; //개발 
+	private static final String DRIVER_NAME = "com.mysql.jdbc.Driver"; //운영
 	
 	private static final String DB_NAME = "kikiplus";
 	
-	private static final String DB_PASSWORD = "tkfkdgo4596"; // 개발 
-//	private static final String DB_PASSWORD = "tkfkdgo4596!"; //운영 
+//	private static final String DB_PASSWORD = "tkfkdgo4596"; // 개발 
+	private static final String DB_PASSWORD = "tkfkdgo4596!"; //운영 
 	
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false&allowPublicKeyRetrieval=true"; // 개발 
-//	private static final String DB_URL = "jdbc:mysql://localhost:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false"; // 운영 
+//	private static final String DB_URL = "jdbc:mysql://localhost:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false&allowPublicKeyRetrieval=true"; // 개발 
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/kikiplus?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false"; // 운영 
 			
 			
 			//"jdbc:mysql://localhost:3306/kikiplus?autoReconnect=true&useSSL=false&serverTimezone=UTC&characterEncoding=utf8&characterSetResults=utf8&verifyServerCertificate=false";

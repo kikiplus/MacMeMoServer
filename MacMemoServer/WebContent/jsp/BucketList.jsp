@@ -107,6 +107,8 @@
 					Onclick="javascript:passForm('UpdateHidden.jsp')">
 					<input type=button value="상세"
 					Onclick="javascript:passForm('BucketDetails.jsp')">
+					<input type=button value="숨김 삭제"
+					Onclick="javascript:passForm('DeleteBuckets.jsp')">
 				</td>
 			</tr>
 		<%

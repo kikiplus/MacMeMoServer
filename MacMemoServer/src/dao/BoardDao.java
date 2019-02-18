@@ -153,4 +153,30 @@ public class BoardDao {
 		return true;
 
 	}
+	
+	/**
+	 * 게시판 숨긴 글 삭제
+	 * 
+	 * @param board
+	 * @return 게시판 글 삭제 성공 여부
+	 * @throws SQLException
+	 */
+	public static boolean deleteHiddenBoard() throws SQLException {
+		Connection con = null;
+		try {
+			con = DBConnectionUtil.getConnection();
+			String sql = "DELETE FROM BUCKET WHERE HIDDEN = 'Y' ;";
+
+			PreparedStatement preparedStmt = (PreparedStatement) con.prepareStatement(sql);
+			preparedStmt.execute(sql);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			con.close();
+		}
+		return true;
+
+	}
 }
