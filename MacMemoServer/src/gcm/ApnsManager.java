@@ -1,8 +1,9 @@
 package gcm;
-import javapns.back.PushNotificationManager;
-import javapns.back.SSLConnectionHelper;
-import javapns.data.Device;
-import javapns.data.PayLoad;
+
+import javapns.devices.*;
+import javapns.devices.Device;
+import javapns.devices.implementations.basic.BasicDevice;
+import javapns.notification.*;
 
 public class ApnsManager {
 
@@ -28,43 +29,42 @@ public class ApnsManager {
 	public static boolean sendAPNSMessage(int runMode, String deviceToken, String alertMessage, 
 			int badgeCount, String soundFile, String certPassword) throws Exception {
 		
+		boolean result = false;
 		try {
 			
-			PayLoad payLoad = new PayLoad();
-			payLoad.addAlert(alertMessage);
-			payLoad.addBadge(badgeCount);
-			payLoad.addSound(soundFile);
-
-			PushNotificationManager pushManager = PushNotificationManager.getInstance();
-			pushManager.addDevice("iPhone", deviceToken);
-
 			String host = null;
 			String certificatePath = null;
 			
 			if (runMode == RUN_MODE_DEVELOPMENT) {
 				host = "gateway.sandbox.push.apple.com";
-				certificatePath = "./Key/development_key.p12";
+				certificatePath = "Key/development_key.p12";
 			} else if (runMode == RUN_MODE_PRODUCTION) {
 				host = "gateway.push.apple.com";
-				certificatePath = "./Key/production_key.p12";
+				certificatePath = "Key/production_key.p12";
 			}
 
 			int port = 2195;
-			pushManager.initializeConnection(host, port, certificatePath, certPassword, SSLConnectionHelper.KEYSTORE_TYPE_PKCS12);
-
-			Device client = pushManager.getDevice("iPhone");
-			pushManager.sendNotification(client, payLoad);
-			pushManager.stopConnection();
-
-			pushManager.removeDevice("iPhone");
 			
-			
+			PushNotificationManager pushManager = new PushNotificationManager();
+			pushManager.initializeConnection(new AppleNotificationServerBasicImpl(certificatePath, certPassword,"PKCS12",host,port));
+			 
+			PushNotificationPayload payLoad = new PushNotificationPayload();
+			payLoad.addBadge(1);
+			payLoad.addSound("default");
+			payLoad.addAlert("테스트 입니다."); // 아이폰에 보낼 메세지
+			Device device = new BasicDevice();
+			device.setToken(deviceToken);
+			PushedNotification notification = pushManager.sendNotification(device, payLoad);
+			result = notification.isSuccessful();
+			 
+			System.out.println("========== END ==========");
+
 		} catch (Exception ex) {
 			ex.printStackTrace(); 
 			System.out.println("@@ sendAPNSMessage Exception : " + ex.toString());
 			return false;
 		}
 		
-		return true;
+		return result;
 	}
 }
