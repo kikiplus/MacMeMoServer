@@ -1,9 +1,10 @@
-package gcm;
+package push;
 
 import javapns.devices.*;
 import javapns.devices.Device;
 import javapns.devices.implementations.basic.BasicDevice;
 import javapns.notification.*;
+import utils.XMLParser;
 
 public class ApnsManager {
 
@@ -27,7 +28,7 @@ public class ApnsManager {
 	 *             예외
 	 */
 	public static boolean sendAPNSMessage(int runMode, String deviceToken, String alertMessage, 
-			int badgeCount, String soundFile, String certPassword) throws Exception {
+			int badgeCount, String soundFile) throws Exception {
 		
 		boolean result = false;
 		try {
@@ -37,13 +38,15 @@ public class ApnsManager {
 			
 			if (runMode == RUN_MODE_DEVELOPMENT) {
 				host = "gateway.sandbox.push.apple.com";
-				certificatePath = "Key/development_key.p12";
+				certificatePath = "www/Key/development_key.p12";
 			} else if (runMode == RUN_MODE_PRODUCTION) {
 				host = "gateway.push.apple.com";
-				certificatePath = "Key/production_key.p12";
+				certificatePath = "www/Key/production_key.p12";
 			}
 
 			int port = 2195;
+			
+			String certPassword = XMLParser.getXMLObject("APNSCertPassword");
 			
 			PushNotificationManager pushManager = new PushNotificationManager();
 			pushManager.initializeConnection(new AppleNotificationServerBasicImpl(certificatePath, certPassword,"PKCS12",host,port));
@@ -51,7 +54,7 @@ public class ApnsManager {
 			PushNotificationPayload payLoad = new PushNotificationPayload();
 			payLoad.addBadge(1);
 			payLoad.addSound("default");
-			payLoad.addAlert("테스트 입니다."); // 아이폰에 보낼 메세지
+			payLoad.addAlert(alertMessage); 
 			Device device = new BasicDevice();
 			device.setToken(deviceToken);
 			PushedNotification notification = pushManager.sendNotification(device, payLoad);

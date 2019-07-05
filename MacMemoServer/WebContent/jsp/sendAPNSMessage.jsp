@@ -3,7 +3,7 @@
 <%@page import="dao.MobileUserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="gcm.ApnsManager"%>
+<%@page import="push.ApnsManager"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,7 +13,7 @@
 	<%
 		request.setCharacterEncoding("UTF-8");
 		String sendAll = request.getParameter("sendAll");
-		String certPass = request.getParameter("certPassword");
+		String checkReal = request.getParameter("checkReal");
 		
 		if (sendAll != null && sendAll.equals("Y")) {
 			// 전체 발송
@@ -27,7 +27,7 @@
 			System.out.println("@@ sendAll : " + sendAll);
 			System.out.println("@@ REG_ID : " + registrationId);
 			System.out.println("@@ MSG : " + content);
-			System.out.println("@@ certPass : " + certPass);
+			System.out.println("@@ checkReal : " + checkReal);
 
 			if (registrationId == null || content == null) {
 				out.println("<script>alert('" + "APNS 전송실패" + "');</script>");
@@ -35,14 +35,18 @@
 				return;
 			}
 
-			boolean isResult = ApnsManager.sendAPNSMessage(1, registrationId, content, 1, "",  certPass);
+			int nReal = 1;
+			if("Y".equals(checkReal)){
+				nReal = 2;
+			}
+			boolean isResult = ApnsManager.sendAPNSMessage(nReal, registrationId, content, 1, "");
 			if (isResult) {
 				System.out.println("@@ APNS 전송 완료");
 				out.println("<script>alert('" + "APNS 전송완료" + "');</script>");
 				response.sendRedirect("APNSTest.jsp");
 			} else {
 				out.println("<script>alert('" + "APNS 전송실패" + "');</script>");
-				//response.sendRedirect("APNSTest.jsp");
+				response.sendRedirect("APNSTest.jsp");
 			}
 		}
 	%>

@@ -1,4 +1,4 @@
-package gcm;
+package push;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

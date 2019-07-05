@@ -37,13 +37,6 @@
 				return;
 			}
 
-			if (!form.certPassword.value) {
-				alert('인증서 암를 입력해주세요');
-				form.certPassword.focus();
-				return;
-			}
-			
-			
 			if (!form.sendMessage.value) {
 				alert('보낼 메시지를 입력해주세요');
 				form.sendMessage.focus();
@@ -70,7 +63,7 @@
 <title>메모가지 관리자</title>
 </head>
 <body>
-	<table width="70%" cellpadding="0" cellspacing="0" border="0">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
 		<form name=apns method=post action="sendAPNSMessage.jsp">
 			<tr height="5">
 				<td width="5"></td>
@@ -86,23 +79,22 @@
 			<tr height="10">
 				<td colspan="6"></td>
 			</tr>
-			<tr height="10">
+			<tr height="10" >
 				<td>APNS Device Token</td>
-				<td><input name="regId" type=edit value="" maxlength="300"></td>
-			</tr>
-			<tr height="10">
-				<td>Certification Password</td>
-				<td><input name="certPassword" type=edit value="" maxlength="100"></td>
+				<td ><input name="regId" type=edit value="" maxlength="300" ></td>
 			</tr>
 			
 			<tr height="10">
 				<td>전체 발송</td>
-				<td><input name="sendAll" type="checkbox" value="Y"
-					OnClick="javascript:sendAllMsg()"></td>
+				<td><input name="sendAll" type="checkbox" value="Y" OnClick="javascript:sendAllMsg()"></td>
+			</tr>
+			<tr height="10">
+				<td>Production</td>
+				<td><input name="checkReal" type="checkbox" value="Y"></td>
 			</tr>
 			<tr height="10">
 				<td>전송 메시지</td>
-				<td><textarea name="sendMessage" cols="50" rows="13"></textarea></td>
+				<td><textarea name="sendMessage" cols="50" rows="5"></textarea></td>
 			</tr>
 
 			<tr height="10">

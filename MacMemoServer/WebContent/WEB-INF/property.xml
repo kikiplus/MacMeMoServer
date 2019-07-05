@@ -10,4 +10,7 @@
 	<entry key="SessionUserId">SessionUserId</entry>
 	<entry key="fileErrorLogPath">/home/hosting_users/kikiplus/www/KMemoErrorLog</entry>
 	<entry key="DBfileUploadPath">/home/hosting_users/kikiplus/www/KMemoDBFile</entry>
+	<entry key="APNSCertPassword">fpdlel0102.</entry>
+	
+	
 </properties>
